@@ -36,8 +36,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         list = new ArrayList<String>();
-        list.add("test1");
-        list.add("test2");
 
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(
                 this, android.R.layout.simple_list_item_1,list
@@ -60,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
                         String result = getDataFromUrl("https://api.myip.com");
                         try {
                             JSONObject jObject = new JSONObject(result);
-                            list.add(jObject.getString("ip"));
+                            list.add("IP: "+jObject.getString("ip")+" Country: "+jObject.getString("country"));
                         }catch (Exception e){
                             e.printStackTrace();
                         }
